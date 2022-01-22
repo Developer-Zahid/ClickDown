@@ -1,0 +1,8 @@
+/* Common Modal's Style */
+.modal{
+    &__closer{
+        font-size: toRem(30);
+        color: $color-gray;
+        right: 0;
+    }
+}

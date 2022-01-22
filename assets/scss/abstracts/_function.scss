@@ -1,0 +1,14 @@
+@function toRem($value) {
+    $remValue: ($value / 16) + rem;
+    @return $remValue;
+}
+
+@function toEm($value) {
+    $emValue: ($value / 16) + em;
+    @return $emValue;
+}
+
+@function lineHeight($font, $height) {
+    $lineHeight: ( $height / $font);
+    @return $lineHeight;
+}

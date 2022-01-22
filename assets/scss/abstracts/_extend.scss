@@ -1,0 +1,14 @@
+/* Common Transition Style */
+%transition{
+    transition: all .6s ease;
+}
+
+/* Common  Border Radius Style */
+%radius{
+    border-radius: toRem(9);
+}
+
+/* Common Font-Awesome font-family Style */
+%font-awesome{
+    font-family: "Font Awesome 5 Free";
+}

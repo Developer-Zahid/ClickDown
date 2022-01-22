@@ -1,0 +1,312 @@
+/* Header Section Style */
+.header{
+	position: fixed;
+	top: 0;
+	border-bottom: 1px solid transparent;
+	z-index: 9;
+	@include min-mobile{
+		padding-top: toRem(40);
+	}
+	@include mobile{
+		padding-top: toRem(20);
+	}
+	padding-bottom: toRem(20);
+	transition: padding .6s ease;
+	.navbar{
+		&-brand{
+			&__logo{
+				max-height: toRem(38);
+			}
+			&__text{
+				color: #111111;
+				font-size: toRem(31);
+				font-weight: 900;
+				margin-left: toRem(8);
+				transform: translateY(2px);
+			}
+		}
+		&-toggler{
+			font-size: toRem(28);
+			color: $color-white;
+			z-index: 8;
+			@extend %transition;
+			&[aria-expanded="true"]{
+				color: $color-primary;
+			}
+		}
+		&-collapse{
+			@include desktop{
+				position: fixed;
+				top: 0;
+				right: 0;
+				transform: translateX(100%);
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				width: 50%;
+				height: 100vh;
+				overflow: auto;
+				background-color: $color-text;
+				transition: transform ease-in-out .3s;
+				&.show{
+					transform: translateX(0);
+				}
+				.navbar-nav{
+					width: 100%;
+					margin-top: toRem(20);
+					.nav-item{
+						margin: 0.3rem 0.6rem;
+					}
+				}
+			}
+			@include tablet{
+				width: 100%;
+			}
+		}
+		&-nav{
+			align-items: center;
+		}
+		.nav{
+			&-item{
+				.dropdown{
+					&-toggle{
+						&::after{
+							display: none;
+						}
+						&__icon{
+							font-size: toRem(17);
+							@extend %transition;
+						}
+					}
+					&-menu{
+						background-color: $color-white;
+						padding: toRem(5);
+						@extend %transition;
+						@include min-desktop{
+							display: block;
+							transform: translateY(40%);
+							opacity: 0;
+							visibility: hidden;
+							box-shadow: 0 toRem(25) toRem(25) rgba($color-black, $alpha: 0.1);
+							border: 0;
+							border-bottom: 4px solid $color-primary;
+							border-radius: toRem(16);
+							max-width: toRem(150);
+						}
+					}
+					&-item{
+						&:not(:last-child){
+							margin-bottom: toRem(5);
+						}
+						border-radius: inherit;
+						color: unset;
+						@extend %transition;
+						&.active,
+						&:active,
+						&:hover,
+						&:focus{
+							color: unset;
+							background-color: unset;
+						}
+					}
+				}
+				&.dropdown{
+					@include min-desktop{
+						&::before{
+							content: "";
+							position: absolute;
+							left: 0;
+							bottom: 0;
+							transform: translateY(100%);
+							width: 100%;
+							height: 100%;
+							cursor: pointer;
+							pointer-events: none;
+						}
+						&:hover,
+						&:focus{
+							&::before{
+								pointer-events: all;
+							}
+							.dropdown-menu{
+								transform: translateY(0);
+								opacity: 1;
+								visibility: visible;
+							}
+						}
+					}
+					&.show,
+					&:hover,
+					&:focus{
+						.nav-link{
+							.dropdown-toggle__icon{
+								transform: rotate(180deg);
+							}
+						}
+					}
+				}
+			}
+			&-link{
+				position: relative;
+				color: $color-white;
+				font-size: toRem(14);
+				font-weight: 700;
+				padding: toRem(10) toRem(20);
+				@extend %radius;
+				&.dropdown-toggle{
+					padding: toRem(32) toRem(31);
+				}
+				@extend %transition;
+				&.active,
+				&:hover,
+				&:focus-visible{
+					color: $color-text;
+					background-color: $color-white;
+					.dropdown-toggle__icon{
+						transform: rotate(180deg);
+					}
+				}
+				&:focus,
+				&[aria-expanded="true"]{
+					.dropdown-toggle__icon{
+						transform: rotate(180deg);
+					}
+					~ .dropdown-menu{
+						@include min-desktop{
+							transform: translateY(0);
+							opacity: 1;
+							visibility: visible;
+						}
+					}
+				}
+			}
+			&-btn{
+				display: inline-block;
+				color: $color-white;
+				font-size: toRem(14);
+				font-weight: 700;
+				padding: toRem(10) toRem(22);
+				@extend %radius;
+				@extend %transition;
+				&--login{
+					background-color: rgba($color-white, $alpha: 0.1);
+					box-shadow: 0 toRem(10) toRem(25) rgba($color-shadow, $alpha: 0.1);
+					&:hover,
+					&:focus-visible{
+						color: $color-white;
+						background-color: rgba($color-white, $alpha: 0.6);
+					}
+				}
+				&--signup{
+					color: $color-secondary;
+					background-color: $color-white;
+					box-shadow: 0 toRem(12) toRem(25) $color-shadow-secondary;
+					&:hover,
+					&:focus-visible{
+						color: $color-white;
+						background-color: $color-primary;
+						box-shadow: 0 10px 25px rgba($color-primary, $alpha: 0.5);
+					}
+				}
+			}
+		}
+		&-btn-nav{
+			@include desktop{
+				flex-direction: column;
+				align-items: center;
+			}
+			.nav-item{
+				@include desktop{
+					margin: toRem(8) 0;
+				}
+				@include min-desktop{
+					margin-left: toRem(12);
+				}
+			}
+		}
+	}
+	&--fixed{
+		@include min-mobile{
+			padding-top: toRem(20);
+		}
+		border-bottom-color: #e4e4e4;
+		background-color: $color-white;
+		box-shadow: 0 3px 18px rgba($color-black, $alpha: 0.12);
+		.navbar{
+			&-toggler{
+				color: $color-primary;
+			}
+			&-collapse{
+				@include desktop{
+					background-color: $color-white;
+				}
+			}
+			.nav{
+				&-item{
+					&.dropdown{
+						&.show,
+						&:hover,
+						&:focus{
+							.nav-link{
+								.dropdown-toggle__icon{
+									transform: rotate(180deg);
+								}
+							}
+						}
+					}
+				}
+				&-link{
+					color: $color-text;
+					&.active,
+					&:hover,
+					&:focus-visible{
+						color: $color-primary;
+					}
+				}
+				&-btn{
+					color: $color-white;
+					&--login{
+						color: rgba($color-black, $alpha: 0.4);
+						&:hover,
+						&:focus-visible{
+							color: #150d64;
+						}
+					}
+					&--signup{
+						color: $color-white;
+						background-color: $color-primary;
+						box-shadow: 0 10px 25px rgba($color-primary, $alpha: 0.5);
+						transition:
+							box-shadow 0s,
+							background-color .6s ease;
+						&:hover,
+						&:focus-visible{
+							background-color: #5c4dbc;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+/* Off Canvas Navbar Toggler */
+.offCanvasMenuCloser{
+	top: 0;
+	left: 0;
+	transform: translateX(100%);
+	width: 100%;
+	height: 100%;
+	background: rgba($color: #000000, $alpha: 0.5);
+	z-index: 8;
+	opacity: 0;
+	transition: opacity .4s ease .4s;
+	display: none;
+	&.show{
+		transform: translateX(0);
+		opacity: 1;
+	}
+	@include tablet-to-desktop-lg{
+		display: block;
+	}
+}

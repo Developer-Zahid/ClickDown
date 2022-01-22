@@ -1,0 +1,149 @@
+/* Footer Section Style */
+.footer{
+    background-image: url(../images/footer/footer-bg.svg);
+    background-repeat: no-repeat;
+    background-position: 50% 40px;
+    background-size: cover;
+    @include min-desktop-lg{
+        background-size: toRem(1793);
+    }
+    &__card{
+        background-image: url("../images/logo/logo-mark.svg");
+        background-repeat: no-repeat;
+        background-position: -5% 0%;
+        background-size: toRem(60);
+        padding: toRem(20);
+        @include min-desktop{
+            background-position: -5% 50%;
+            background-size: toRem(170);
+            padding: toRem(43) toRem(57) toRem(42) toRem(148);
+        }
+        box-shadow: 0 20.2778px 60.8333px rgba(16,30,54,.1);
+        @extend %radius;
+        &__title{
+            font-size: toRem(30);
+            line-height: 1.2;
+            font-weight: 800;
+            @include min-desktop{
+                font-size: toRem(50);
+            }
+        }
+        &__text{
+            font-size: toRem(14);
+        }
+    }
+    &__icon-card{
+        padding: toRem(20) 0;
+        @include min-mobile{
+            padding: toRem(36) 0;
+        }
+        &__image-wrapper{
+            @include min-mobile{
+                margin-right: toRem(15);
+            }
+            @include mobile{
+                margin-bottom: toRem(15);
+            }
+        }
+        &__content{
+            font-size: toRem(14);
+            color: $color-white;
+        }
+        &__link{
+            font-weight: 600;
+            &:hover,
+            &:focus-visible{
+                text-decoration: underline;
+            }
+        }
+    }
+    &__main{
+        padding: toRem(40) 0;
+        border-style: solid;
+        border-color: rgba($color-white, $alpha: 0.25);
+        border-width: 1px 0 1px;
+    }
+    &__block{
+        color: $color-white;
+        @include desktop-lg{
+            margin-bottom: toRem(40);
+        }
+        &__title,
+        &__list__link{
+            font-size: toRem(14);
+            letter-spacing: .14px;
+        }
+        &__title{
+            font-weight: 700;
+            margin-bottom: toRem(20);
+        }
+        &__list{
+            &__item{
+                margin-bottom: toRem(20);
+            }
+            &__link{
+                display: block;
+                &:hover,
+                &:focus-visible{
+                    text-decoration: underline;
+                }
+            }
+            &__app-btn{
+                max-width: toRem(150);
+                transition: transform .2s ease-in-out;
+                &:hover,
+                &:focus-visible{
+                    transform: translateY(-5%);
+                }
+            }
+        }
+    }
+    &__bottom{
+        padding: toRem(30) 0;
+    }
+    &-brand{
+        &__logo{
+            max-height: toRem(38);
+        }
+        &__text{
+            color: $color-white;
+            font-size: toRem(26);
+            font-weight: 900;
+            margin-left: toRem(8);
+            transform: translateY(2px);
+        }
+    }
+    &__copyright{
+        color: $color-white;
+        font-size: toRem(12);
+        &__link{
+            &::before{
+                content: "|";
+                margin: 0 toRem(5);
+            }
+            &:hover,
+            &:focus-visible{
+                text-decoration: underline;
+            }
+        }
+    }
+    &__social-list{
+        &__item{
+            &:not(:first-child){
+                margin-left: toRem(5);
+            }
+        }
+        &__link{
+            padding: toRem(2);
+            color: $color-white;
+            transition: transform .2s ease-in-out;
+            &__image{
+                max-width: toRem(30);
+            }
+            &:hover,
+            &:focus-visible{
+                transform: translateY(-20%);
+            }
+        }
+    }
+}

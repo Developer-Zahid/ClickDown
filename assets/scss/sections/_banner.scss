@@ -1,0 +1,73 @@
+/* Banner Section Style */
+.banner{
+    &-wrapper{
+        &::before{
+            content: "";
+            position: absolute;
+            transform: translate(-10%,-5%);
+            width: 1382px;
+            height: 780px;
+            left: 50%;
+            top: 0;
+            background: url(../images/banner/banner-bg-shape.svg) no-repeat bottom left/cover;
+        }
+    }
+    &__image{
+        &-wrapper{
+            min-width: 48vw;
+        }
+        animation: waveImage 6s cubic-bezier(0.37, 0, 0.63, 1) infinite;
+        @keyframes waveImage {
+            0%,100%{
+                transform: translateY(0);
+            }
+            50%{
+                transform: translateY(5%);
+            }
+        }
+    }
+    &__title{
+        font-size: toRem(50);
+        font-weight: 800;
+        line-height: lineHeight(50,69);
+        margin-top: toRem(60);
+    }
+    &__text{
+        font-size: toRem(14);
+        margin-top: toRem(15);
+        margin-bottom: toRem(30);
+    }
+    &__form{
+        max-width: toRem(350);
+        margin-bottom: toRem(25);
+    }
+    &__btn-wrapper{
+        margin-bottom: toRem(60);
+    }
+    &__review{
+        &__list{
+            margin-bottom: toRem(15);
+            gap: toRem(5);
+            &__item{
+                &__image{
+                    max-width: toRem(15);
+                }
+                &__text{
+                    color: $color-gray;
+                    font-size: toRem(12);
+                }
+            }
+        }
+        &__partners{
+            gap: toRem(15);
+            &__link{
+                &:not(:last-child){
+                    margin-right: toRem(15);
+                }
+            }
+            &__logo{
+                max-width: toRem(70);
+            }
+        }
+    }
+}

@@ -1,0 +1,18 @@
+/* Join Companies Section Style */
+.join-companies{
+    padding: toRem(100) 0 toRem(50);
+    &__title{
+        color: $color-gray;
+        font-size: toRem(12);
+        font-weight: 700;
+        margin-bottom: toRem(40);
+    }
+    &__list{
+        gap: toRem(30);
+        &__item{
+            &__image{
+                max-height: toRem(28);
+            }
+        }
+    }
+}

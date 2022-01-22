@@ -1,0 +1,98 @@
+/* Testimonial Section Style */
+.testimonial{
+    margin-bottom: toRem(50);
+    @include desktop{
+        padding-top: toRem(50);
+    }
+    &__slider{
+        &::before{
+            content: "";
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 80%;
+            background-color: #fff8fb;
+            border-radius: toRem(60);
+            z-index: -1;
+            @include min-desktop{
+                top: 0;
+                width: 80%;
+                height: 100%;
+            }
+        }
+        &::after{
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: translateX(-10%);
+            width: toRem(300);
+            height: toRem(300);
+            background: url("../images/reviews/dots-pink.svg") no-repeat center;
+            background-size: contain;
+            z-index: -1;
+        }
+    }
+    &__slide{
+        @include desktop{
+            padding-top: toRem(50);
+        }
+    }
+    &__card{
+        &__head{
+            @include desktop{
+                justify-content: center;
+            }
+            &__image{
+                @include desktop{
+                    max-width: toRem(300);
+                }
+            }
+        }
+        &__play-btn{
+            @include desktop{
+                transform: translateY(-50%);
+                top: 0;
+            }
+            @include min-desktop{
+                transform: translateX(32%);
+                right: 0;
+            }
+            width: toRem(89);
+            height: toRem(89);
+            z-index: 1;
+            border: toRem(10) solid rgba($color-white, $alpha: 0.6);
+            box-shadow: 0 24.9063px 32.2317px rgba(0,0,0,.13);
+        }
+        &__body{
+            padding: toRem(10) toRem(30);
+            @include desktop{
+                padding: toRem(10) toRem(30) toRem(50);
+            }
+        }
+        &__text{
+            line-height: lineHeight(22, 45);
+            @include min-tablet{
+                margin-bottom: toRem(55);
+                font-size: toRem(22);
+            }
+        }
+        &__user{
+            font-size: toRem(16);
+            font-weight: 700;
+            margin-bottom: toRem(15);
+            @include min-tablet{
+                font-size: toRem(20);
+            }
+            &-logo{
+                @include tablet{
+                    max-width: toRem(90);
+                }
+                @include min-tablet{
+                    max-width: toRem(150);
+                }
+            }
+        }
+    }
+}

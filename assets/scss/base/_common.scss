@@ -1,0 +1,205 @@
+/* Reset CSS */
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	outline: none;
+	-webkit-tap-highlight-color: transparent;
+}
+
+::selection{
+	color: $color-white;
+	background: $color-primary;
+}
+
+// html,
+// body{
+// 	scroll-behavior: smooth;
+// }
+
+html{
+	font-size: 16px;
+	text-size-adjust: none;
+}
+
+body {
+	color: $color-text;
+	font-weight: 400;
+	font-family: $font-primary;
+	text-rendering: optimizeSpeed;
+}
+
+a,
+a:hover,
+a:focus,
+a:active {
+	text-decoration: none;
+	color: unset;
+}
+
+button,
+button:hover,
+button:focus,
+button:active {
+	outline: none;
+}
+
+input:-webkit-autofill{
+	-webkit-text-fill-color: unset;
+	transition: background-color 5000s;
+}
+
+ul,
+ol {
+	list-style: none;
+}
+
+img{
+	object-fit: cover;
+}
+
+.user-select-none{
+	pointer-events: none;
+}
+
+.list-inline{
+	font-size: 0;
+	&-item{
+		font-size: 1rem;
+	}
+}
+
+/* Custom Container Style */
+.container{
+	@include min-desktop-xl{
+		max-width: 1230px;
+	}
+}
+
+/* Common Slick Style */
+.slick{
+	&__arrows{
+		bottom: 5%;
+		position: absolute;
+		z-index: 2;
+		width: toRem(40);
+		height: toRem(40);
+		background-color: transparent;
+		text-align: center;
+		cursor: pointer;
+		border: 1px solid $color-text;
+		transition: all .2s;
+		&--left{
+			right: calc(5% + 55px);
+		}
+		&--right{
+			right: 5%;
+		}
+		&.slick-disabled{
+			opacity: .25;
+			&:hover,
+			&:focus-visible{
+				border-color: $color-text;
+				background-color: transparent;
+				box-shadow: none;
+			}
+		}
+		&__image{
+			max-width: toRem(15);
+		}
+		&:hover,
+		&:focus-visible{
+			border-color: $color-primary;
+			background-color: $color-white;
+			box-shadow: 0 19.0016px 90.2576px rgba(253,113,175,.1);
+		}
+	}
+}
+
+/* Veno Box Style */
+.vbox{
+	&-close{
+		top: 2%;
+		right: 2%;
+		width: 4rem;
+		height: 4rem;
+		border-radius: 50%;
+		padding: 0;
+		padding-top: toRem(6);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 3rem;
+		background: $color-primary !important;
+		color: $color-white !important;
+		transition: transform .2s ease-in-out;
+		&:hover{
+			transform: rotate(45deg);
+		}
+	}
+	&-preloader .sk{
+		&-child,
+		&-rect,
+		&-cube,
+		&-spinner,
+		&-rotating-plane{
+			background: $color-primary !important;
+		}
+	}
+	&-next,
+	&-prev{
+		width: 3rem;
+		height: 3rem;
+		span{
+			width: 2rem;
+			height: 2rem;
+			border-width: 4px;
+			border-top-color: $color-primary !important;
+			border-right-color: $color-primary !important;
+		}
+	}
+}
+
+/* Preloader Section Style */
+.preloader{
+	top: 0;
+	left: 0;
+	z-index: 9999;
+}
+
+/* Common Section Gap Style */
+.section-gap{
+	padding: 6rem 0;
+	@include desktop{
+		padding: 3rem 0;
+	}
+	&--fix{
+		padding-bottom: calc(6rem - 30px);
+		@include desktop{
+			padding-bottom: calc(3rem - 30px);
+		}
+	}
+}
+
+/* Common Section Heading Style */
+.section-header{
+	margin-bottom: toRem(50);
+	@include mobile{
+		margin-bottom: toRem(30);
+	}
+	&__title{
+		font-size: toRem(40);
+		font-family: unset;
+		@include tablet{
+			font-size: toRem(30);
+		}
+		@include mobile{
+			font-size: toRem(26);
+		}
+	}
+}
+
+.primary-text{
+	color: $color-primary;
+}

@@ -1,0 +1,62 @@
+/* Common Button's Style */
+.primary-btn{
+	display: inline-block;
+	color: $color-white;
+	font-size: toRem(14);
+	font-family: $font-primary;
+	font-weight: 800;
+	padding: 2px toRem(30);
+	min-width: toRem(138);
+	min-height: toRem(50);
+	background: $color-primary;
+	text-transform: capitalize;
+	border: 0;
+	transition: .2s;
+	@extend %radius;
+	
+	&--primary{
+		box-shadow: 0 toRem(10) toRem(25) rgba($color-primary, $alpha: 0.5);
+		&.dark-hover{
+			&:hover,
+			&:focus-visible{
+				background-color: #5c4dbc;
+			}
+		}
+	}
+	&--pink{
+		background-color: #fd71af;
+		box-shadow: 0 toRem(10) toRem(25) rgba($color: #fd71af, $alpha: 0.3);
+		&:hover,
+		&:focus-visible{
+			box-shadow: 0 toRem(10) toRem(25) rgba($color: #fd71af, $alpha: 0.5);
+		}
+	}
+	&--cyen{
+		background-color: #49ccf9;
+		box-shadow: 0 toRem(10) toRem(25) rgba($color: #49ccf9, $alpha: 0.3);
+		&:hover,
+		&:focus-visible{
+			box-shadow: 0 toRem(10) toRem(25) rgba($color: #49ccf9, $alpha: 0.5);
+		}
+	}
+}
+
+.scroll-top{
+	bottom: 3%;
+	right: 1%;
+	display: none;
+	cursor: pointer;
+	z-index: 7;
+	@include mobile{
+		bottom: 2%;
+	}
+	&__btn{
+		width: 2.8rem;
+		height: 2.8rem;
+		font-size: 1.1rem;
+		color: $color-white;
+		background: $color-primary;
+		box-shadow: 0 toRem(10) toRem(25) rgba($color-primary, $alpha: 0.5);
+		@extend %radius;
+	}
+}

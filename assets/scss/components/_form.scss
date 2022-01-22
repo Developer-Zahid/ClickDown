@@ -1,0 +1,53 @@
+/* Form Section Style */
+.form{
+    &-control{
+        color: $color-text;
+        font-size: toRem(14);
+        border: 1px solid rgba($color-border, $alpha: 0.6);
+        box-shadow: 0 toRem(19) toRem(25) rgba($color-shadow, $alpha: 0.04);
+        text-shadow: none;
+        padding: toRem(21);
+        min-height: toRem(56);
+        caret-color: $color-primary;
+        transition: .2s;
+        @extend %radius;
+        &:hover,
+        &:focus{
+            box-shadow: 0 toRem(19) toRem(25) rgba($color-shadow, $alpha: 0.11);
+        }
+        &:focus{
+            border-color: $color-primary;
+        }
+        &::placeholder{
+            color: $color-border;
+            text-shadow: none;
+            font-weight: 400;
+        }
+    }
+}
+.invalid-feedback{
+    color: $color-white;
+    background-color: $color-danger;
+    font-size: toRem(11);
+    font-weight: 600;
+    padding: 6px 0;
+    box-shadow:
+        0 20.2778px 60.8333px rgba(16,30,54,.1),
+        0 20.2778px 60.8333px rgba(16,30,54,.1);
+    border-radius: 0 0 toRem(9) toRem(9);
+}
+.form-control.is-invalid,
+.was-validated .form-control:invalid{
+    border-color: $color-danger;
+    border-radius: toRem(9) toRem(9) 0 0;
+    &:focus{
+        box-shadow: none;
+    }
+}
+.form-control.is-valid,
+.was-validated .form-control:valid{
+    border-color: $color-success;
+    &:focus{
+        box-shadow: none;
+    }
+}
