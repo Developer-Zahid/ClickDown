@@ -2,6 +2,7 @@
 .header{
 	position: fixed;
 	top: 0;
+	width: 100%;
 	border-bottom: 1px solid transparent;
 	z-index: 9;
 	@include min-mobile{
@@ -18,11 +19,14 @@
 				max-height: toRem(38);
 			}
 			&__text{
+				font-size: toRem(24);
 				color: #111111;
-				font-size: toRem(31);
 				font-weight: 900;
 				margin-left: toRem(8);
 				transform: translateY(2px);
+				@include min-tablet{
+					font-size: toRem(31);
+				}
 			}
 		}
 		&-toggler{
@@ -288,6 +292,11 @@
 				}
 			}
 		}
+	}
+}
+.modal-open .header{
+	@include min-tablet{
+		width: calc(100% - 17px);
 	}
 }
 /* Off Canvas Navbar Toggler */

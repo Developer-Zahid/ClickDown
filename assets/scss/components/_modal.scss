@@ -1,8 +1,150 @@
 /* Common Modal's Style */
 .modal{
+    &-backdrop.show{
+        opacity: 0.65;
+    }
     &__closer{
         font-size: toRem(30);
         color: $color-gray;
-        right: 0;
+        right: 1rem;
+        transition: transform .2s;
+        &:hover{
+            transform: rotate(90deg);
+        }
+    }
+    &__title{
+        font-size: toRem(20);
+        font-weight: 700;
+        line-height: 1;
+        letter-spacing: -.05em;
+        @include min-tablet{
+            font-size: toRem(27);
+        }
+    }
+}
+
+#contactModal{
+    .modal{
+        &-dialog{
+            max-width: toRem(420);
+        }
+        &-content{
+            @include min-tablet{
+                padding-top: toRem(30);
+                padding-bottom: toRem(30);
+            }
+        }
+        &-body{
+            @include min-tablet{
+                padding-left: toRem(24);
+                padding-right: toRem(24);
+            }
+        }
+    }
+}
+
+#signUpModal{
+    padding-right: 0 !important;
+    .modal{
+        &__closer{
+            top: 1rem;
+            color: $color-white;
+            width: toRem(50);
+            height: toRem(50);
+            border: 3px solid $color-white;
+        }
+        &-dialog{
+            max-width: unset;
+        }
+        &-body{
+            @include min-tablet{
+                padding-left: toRem(100);
+            }
+            &::before{
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: url("../images/sign-up/signup-bg.svg") no-repeat 0 50%/890px;
+                transition: transform .3s cubic-bezier(.7,.2,.5,1);
+                transform: translate(-100%,0);
+                z-index: -1;
+            }
+            &__content__heading{
+                color: $color-white;
+                text-shadow: 0 1px 1px rgba(0,0,0,.2);
+                opacity: 0;
+                transition: all .3s cubic-bezier(.7,.2,.5,1);
+                @include tablet{
+                    text-align: center;
+                    transform: translateY(-100%);
+                }
+                @include min-tablet{
+                    transform: translateX(-100%);
+                    margin-right: toRem(50);
+                }
+                @include desktop{
+                    margin-bottom: toRem(20);
+                }
+            }
+            .signup-form-wrapper{
+                opacity: 0;
+                transition: all .3s cubic-bezier(.7,.2,.5,1) .4s;
+                @include tablet{
+                    margin: 0 auto;
+                    transform: translateY(10%);
+                }
+                @include min-tablet{
+                    transform: translateX(10%);
+                }
+            }
+            &__title{
+                font-size: toRem(30);
+                font-weight: 800;
+                @include min-desktop{
+                    font-size: toRem(44);
+                }
+            }
+            &__sub-title{
+                font-size: toRem(16);
+                font-weight: 600;
+                @include min-desktop{
+                    font-size: toRem(20);
+                }
+            }
+        }
+    }
+    &.fade{
+        .modal-dialog{
+            transition: transform .3s cubic-bezier(.7,.2,.5,1) .2s;
+            transform: translate(0, 0);
+        }
+    }
+    &.show{
+        .modal-body{
+            &::before{
+                transform: translate(0,0);
+            }
+            &__content__heading{
+                opacity: 1;
+                @include tablet{
+                    transform: translateY(0);
+                }
+                @include min-tablet{
+                    transform: translateX(0);
+                }
+            }
+            .signup-form-wrapper{
+                opacity: 1;
+                @include tablet{
+                    transform: translateY(0);
+                }
+                @include min-tablet{
+                    transform: translateX(0);
+                }
+            }
+        }
     }
 }

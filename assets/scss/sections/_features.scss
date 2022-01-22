@@ -34,7 +34,7 @@
             }
         }
     }
-    &--purple{
+    &--primary{
         .features{
             &__container{
                 background-color: #f8f7fe;
@@ -65,9 +65,9 @@
             &__sub-title{
                 color: #00b884;
             }
-            // &__videos{
-            //     box-shadow: 0 18.1587px 86.254px rgba(123,104,238,.1);
-            // }
+            &__image{
+                box-shadow: 0px 18.1587px 86.254px rgba(0, 184, 132, 0.1);
+            }
             &__icon-block{
                 background-color: #00b884;
                 box-shadow: 0 20px 25px rgba(0,184,132,.2);
@@ -88,6 +88,17 @@
         .nav-pills{
             .nav-link::after{
                 background-color: #00b884;
+            }
+        }
+    }
+    &--purple{
+        .features{
+            &__icon-block{
+                background-color: #9b51e0;
+                box-shadow: 0 20px 25px rgba(155,81,224,.3);
+            }
+            &__sub-title{
+                color: #9b51e0;
             }
         }
     }
@@ -115,6 +126,9 @@
         line-height: lineHeight(48, 65);
         margin: toRem(30) 0;
         @include min-desktop{
+            font-size: toRem(35);
+        }
+        @include min-desktop-xl{
             font-size: toRem(48);
         }
     }
@@ -294,6 +308,14 @@
             font-size: toRem(12);
             padding: toRem(10) toRem(15);
             margin-top: toRem(20);
+        }
+    }
+    &__help__list{
+        &__item{
+            &:not(:last-child){
+                margin-right: toRem(25);
+            }
+            font-size: toRem(14);
         }
     }
 }

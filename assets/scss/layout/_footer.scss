@@ -21,10 +21,16 @@
         box-shadow: 0 20.2778px 60.8333px rgba(16,30,54,.1);
         @extend %radius;
         &__title{
-            font-size: toRem(30);
+            font-size: toRem(26);
             line-height: 1.2;
             font-weight: 800;
+            @include min-mobile{
+                font-size: toRem(30);
+            }
             @include min-desktop{
+                font-size: toRem(44);
+            }
+            @include min-desktop-xl{
                 font-size: toRem(50);
             }
         }
